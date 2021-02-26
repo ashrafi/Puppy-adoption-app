@@ -15,10 +15,38 @@
  */
 package com.example.androiddevchallenge.ui.theme
 
-import androidx.compose.material.Text
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.navigate
+import com.example.androiddevchallenge.PetsDB
 
 @Composable
-fun Name() {
-    Text("hi")
+fun DetailUI(navController: NavHostController, petsDB: PetsDB) {
+    Card(
+        shape = RoundedCornerShape(4.dp),
+        elevation = 20.dp,
+        // backgroundColor =  if (alarmIndex.value == index) colors[index % colors.size] else Color.LightGray,
+        // backgroundColor = colors[index % colors.size],
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+            .clickable(
+                onClick = {
+                    // checkOKViewModel.setCurrCheckOK(alert)
+                    // alarmIndex.value = index
+                    // sendCmd(ACTION_INITIALIZE_DATA)
+                    // Log.v(TAG, "I got clicked $index / alarmIndex.value")
+                    // add navigation
+                    navController.navigate("main")
+                }
+            )
+    ) {
+    }
 }
