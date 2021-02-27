@@ -11,9 +11,9 @@ A simple app to adopt the loving animal "emoji" you always wanted 🐬
 
 ## :bulb: Motivation and Context
 <!--- Optionally point readers to interesting parts of your submission. -->
-Simple Nav 
+Simple app to use. Hope you like it 😀
 <!--- What are you especially proud of? -->
-Nice pics of animals 
+Nice pics of animals and get the emoji animal you always wanted.🐯
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
