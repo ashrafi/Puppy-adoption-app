@@ -19,15 +19,14 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigate
+import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.ui.theme.DetailUI
 import com.example.androiddevchallenge.ui.theme.MyTheme
@@ -53,14 +52,17 @@ fun MyApp(petsDB: PetsDB) {
 
     NavHost(navController, startDestination = "main") {
         composable("main") { MainUI(navController, petsDB) }
-        composable("detail") { DetailUI(navController, petsDB) }
+
+        composable(
+            "detail/{petID}",
+            arguments = listOf(navArgument("petID") { type = NavType.IntType })
+        ) { backStackEntry ->
+            DetailUI(navController, petsDB, backStackEntry.arguments?.getInt("petID"))
+        }
     }
 
     Surface(color = MaterialTheme.colors.background) {
         Column() {
-            Button(onClick = { navController.navigate("detail") }) {
-                Text(text = "Navigate next")
-            }
             navController
             // MainUI(petsDB, navController)
         }

@@ -55,7 +55,7 @@ fun MainUI(navController: NavHostController, petsDB: PetsDB) {
                             // sendCmd(ACTION_INITIALIZE_DATA)
                             Log.v(TAG, "I got clicked $index / alarmIndex.value")
                             // add navigation
-                            navController.navigate("detail")
+                            navController.navigate("detail/$index")
                         }
                     )
             ) {
@@ -66,7 +66,7 @@ fun MainUI(navController: NavHostController, petsDB: PetsDB) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        "${pet.image}",
+                        pet.icon,
                         style = TextStyle(
                             color = Color.Black,
                             fontSize = 45.sp,
@@ -75,7 +75,7 @@ fun MainUI(navController: NavHostController, petsDB: PetsDB) {
                     )
 
                     Text(
-                        "${pet.name}",
+                        pet.name,
                         style = TextStyle(
                             color = Color.Black,
                             fontSize = 22.sp,
